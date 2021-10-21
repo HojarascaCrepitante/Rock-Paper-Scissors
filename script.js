@@ -1,8 +1,9 @@
-function computerPlay([a, b ,c]) {
-  let playComp = a || b || c;
-  console.log(playComp)
-   
-  
-  
+function computerPlay(arr) {
+  let playComp = arr[Math.floor(Math.random() * arr.length)];
+
+  console.log(playComp);
 }
-computerPlay(["Rock", "Paper", "Scissors"]);
+computerPlay(["Rock" , "Paper" , "Scissors"]);
+
+
+
