@@ -5,5 +5,13 @@ function computerPlay(arr) {
 }
 computerPlay(["Rock" , "Paper" , "Scissors"]);
 
+function playerSelection(choice) {
+  let lowerCaseSelection = choice.toLowerCase(); 
+  let capitalizedSelection = lowerCaseSelection.charAt(0).toUpperCase()+lowerCaseSelection.slice(1);
+  let play = `You picked ${capitalizedSelection}`;
+ 
+ console.log(play)
+}
+ playerSelection(prompt("Rock/Paper/Scissors",))
 
 
