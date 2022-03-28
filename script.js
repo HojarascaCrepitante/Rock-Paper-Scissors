@@ -1,17 +1,23 @@
 let playerCount = 0;
 let compCount = 0;
 
-function fullRound(){
- function playerSelection(choice){
-  let lowerCaseSelection = choice.toLowerCase(); 
-  let capitalizedSelection = lowerCaseSelection.charAt(0).toUpperCase()+lowerCaseSelection.slice(1);
-  let play = `You picked ${capitalizedSelection}`;
- 
- console.log(play)
- return(capitalizedSelection)
-}
 
-let playerPlay = playerSelection(prompt("Rock/Paper/Scissors"));
+const container = document.querySelector('#container');
+const button = document.createElement('button');
+button.classList.add('rock');
+button.textContent = 'Rock';
+container.appendChild(button);
+
+const button2 = document.createElement('button');
+button.classList.add('paper');
+button.textContent = 'Paper';
+container.appendChild(button2);
+
+const button3 = document.createElement('button');
+button.classList.add('Scissors');
+button.textContent = 'Scissors';
+container.appendChild(button3);
+
 
  
   function computerPlay(arr) {
@@ -93,32 +99,10 @@ else if(a === "Scissors"){
   return(playerCount, compCount)
   
 }game(playerPlay,comPlay)
-for(i= 0;i = 5; i++){
-  fullRound()
-
-  if(compCount >= 3){
-    console.log("Victory goes to the computer")
-  }
-  else if(  playerCount >= 3){
-    console.log("Epic win Player")
-  }
-}
 
 
 
 
-}fullRound()
-
-for(i= 0;i = 5; i++){
-  fullRound()
-
-  if(compCount >= 3){
-    console.log("Victory goes to the computer")
-  }
-  else if(  playerCount >= 3){
-    console.log("Epic win Player")
-  }
-}
 
 
  
