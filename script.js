@@ -1,12 +1,17 @@
-const results = document.querySelector('#results')
-const playerPoints = document.createElement('p')
-  playerPoints.textContent = '0';
-  playerPoints.setAttribute('id', 'player')
-  results.appendChild(playerPoints)
-const computerPoints = document.createElement('p')
-    computerPoints.textContent = '0';
+const resultsPlayer = document.querySelector('#resultsPlayer')
+  resultsPlayer.textContent = 'Player' 
+  let playerPoints = document.createElement('p')
+    playerPoints.textContent = '0';
+    playerPoints.setAttribute('id', 'player');
+    playerPoints.classList.add('score');
+    resultsPlayer.appendChild(playerPoints)
+const resultsComputer = document.querySelector('#resultsComputer')
+  resultsComputer.textContent = 'Computer'
+  let computerPoints = document.createElement('p')
+    computerPoints.textContent ='0';
     computerPoints.setAttribute('id', 'computer')
-    results.appendChild(computerPoints)
+    computerPoints.classList.add('score')
+    resultsComputer.appendChild(computerPoints)
 
 const container = document.querySelector('#container');
   const rockButton = document.createElement('button');
@@ -15,17 +20,17 @@ const container = document.querySelector('#container');
     rockButton.addEventListener('click', play)
     container.appendChild(rockButton);
 
-const paperButton = document.createElement('button');
-  paperButton.setAttribute('id','Paper')
-  paperButton.textContent = 'Paper';
-  paperButton.addEventListener('click', play)
-  container.appendChild(paperButton);
+    const paperButton = document.createElement('button');
+    paperButton.setAttribute('id','Paper')
+    paperButton.textContent = 'Paper';
+    paperButton.addEventListener('click', play)
+    container.appendChild(paperButton);
 
-const scissorsButton = document.createElement('button');
-  scissorsButton.setAttribute('id', 'Scissors')
-  scissorsButton.textContent = 'Scissors';
-  scissorsButton.addEventListener('click', play)
-  container.appendChild(scissorsButton);
+    const scissorsButton = document.createElement('button');
+    scissorsButton.setAttribute('id', 'Scissors')
+    scissorsButton.textContent = 'Scissors';
+    scissorsButton.addEventListener('click', play)
+    container.appendChild(scissorsButton);
 
   let playerChoice = '';
   
@@ -35,17 +40,48 @@ const scissorsButton = document.createElement('button');
       console.log(e.target.textContent);
       playerChoice = e.target.textContent;
       if(comPlay == 'Paper'){
-        console.log(playerPoints.textContent++)
+        computerPoints.textContent++
+        alert('Computer Wins')
       }
-
+      else if (comPlay == 'Scissors'){
+        
+        playerPoints.textContent++
+        alert('Player Wins')
+      }
+      else if (comPlay == 'Rock'){
+        alert('Tie')
+      }
     }
     else if (e.target.id == 'Paper'){
       console.log(e.target.textContent);
       playerChoice = e.target.textContent;
+        if (comPlay == 'Rock'){
+         playerPoints.textContent++
+         alert('Player Wins')
+        }
+        else if (comPlay == 'Scissors'){
+         computerPoints.textContent++
+         alert('Computer Wins')
+        }
+        else if (comPlay == 'Paper'){
+          alert('Tie')
+        }
     }
     else if (e.target.id == 'Scissors') {
       console.log(e.target.textContent);
       playerChoice = e.target.textContent;
+        if (comPlay == 'Paper'){
+          
+          playerPoints.textContent++
+          alert('Player Wins')          
+        }
+        else if (comPlay == 'Rock'){
+          computerPoints.textContent++
+          alert('Computer Wins')
+        }
+        else if( comPlay == 'Scissors'){
+          alert('Tie')
+        }
     }
       
       console.log(playerChoice)
