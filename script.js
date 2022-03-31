@@ -1,45 +1,35 @@
-const results = document.querySelector('#results')
-const count1 = document.createElement('div');
-count1.classList.add('player');
-count1.textContent = '0'
-results.appendChild(count1);
-
-const count2 = document.createElement('div')
-count2.classList.add('computer');
-count2.textContent = '0'
-results.appendChild(count2);
-
-let playerPlay = '';
 
 const container = document.querySelector('#container');
 const button = document.createElement('button');
-button.classList.add('rock');
+button.setAttribute('id', 'Rock');
 button.textContent = 'Rock';
+button.addEventListener('click', play)
 container.appendChild(button);
-button.addEventListener('click', () => {
-  playerPlay = 'Rock'
-})
 
 const button2 = document.createElement('button');
-button2.classList.add('paper');
+button2.setAttribute('id','Paper')
 button2.textContent = 'Paper';
+button2.addEventListener('click', play)
 container.appendChild(button2);
-button2.addEventListener('click', () => {
-  playerPlay = 'Paper'
-
-})
 
 const button3 = document.createElement('button');
-button3.classList.add('Scissors');
+button3.setAttribute('id', 'Scissors')
 button3.textContent = 'Scissors';
+button3.addEventListener('click', play)
 container.appendChild(button3);
-button3.addEventListener('click', () => {
-  playerPlay = 'Scissors'
 
-})
+  function play(e){
+    if (e.target.id == 'Rock'){
+      console.log(e.target.textContent)
+    }
+    else if (e.target.id == 'Paper'){
+      console.log(e.target.textContent)
+    }
+    else (e.target.id == 'Scissors')
+      console.log(e.target.textContent)
+    
+  }
 
-
- 
   function computerPlay(arr) {
   let playComp = arr[Math.floor(Math.random() * arr.length)];
   let playCompMessage = `Computer picked ${playComp}`;
@@ -50,7 +40,7 @@ button3.addEventListener('click', () => {
 let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"])
  
  
-function game(a,b){
+function game(a,b,c,d){
 
   
   if (a === "Rock"){
@@ -74,7 +64,7 @@ function game(a,b){
   
 }
 
-else if(a === "Paper"){
+else if(c === "Paper"){
     
     if(b === "Paper"){
       console.log("Tie");
@@ -95,7 +85,7 @@ else if(a === "Paper"){
 
 }
  
-else if(a === "Scissors"){
+else if(d === "Scissors"){
     
     if(b === "Scissors"){
       console.log("Tie");
@@ -118,7 +108,7 @@ else if(a === "Scissors"){
   }
   return(count1, count2)
   
-}game(playerPlay,comPlay)
+}game(choice1,comPlay,choice2,choice3)
 
 
 
