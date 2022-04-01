@@ -115,9 +115,21 @@ const everyButton = document.querySelector('#everyButton');
       let currentRound = Number(representationOfRound.textContent);
       return currentRound
     }
+    let winner = false;
+
+    if (playerPoints.textContent == '5'){
+      alert('Player wins the game')
+      winner = true
+    }
+    else if(computerPoints.textContent == '5'){
+      alert('Computer wins the game')
+      winner = true
+    }
     
-
-
+    /* while (winner = true){
+      location.reload(true)
+    }
+    */
 
 
   
