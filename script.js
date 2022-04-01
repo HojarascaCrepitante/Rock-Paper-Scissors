@@ -1,3 +1,8 @@
+let round = document.querySelector('#round')
+  round.textContent = 'Round:'
+  let representationOfRound = document.createElement('p')
+  representationOfRound.textContent = '0'
+  round.appendChild(representationOfRound)
 const resultsPlayer = document.querySelector('#resultsPlayer')
   resultsPlayer.textContent = 'Player' 
   let playerPoints = document.createElement('p')
@@ -12,7 +17,7 @@ const resultsComputer = document.querySelector('#resultsComputer')
     computerPoints.setAttribute('id', 'computer')
     computerPoints.classList.add('score')
     resultsComputer.appendChild(computerPoints)
-
+    
 const container = document.querySelector('#container');
   const rockButton = document.createElement('button');
     rockButton.setAttribute('id', 'Rock');
@@ -33,9 +38,16 @@ const container = document.querySelector('#container');
     container.appendChild(scissorsButton);
 
   let playerChoice = '';
-  
+ 
   function play(e){
-    
+    function computerPlay(arr) {
+      let playComp = arr[Math.floor(Math.random() * arr.length)];
+      let playCompMessage = `Computer picked ${playComp}`;
+      console.log(playCompMessage);
+      return(playComp);
+      }
+      let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"])
+          
     if (e.target.id == 'Rock'){
       console.log(e.target.textContent);
       playerChoice = e.target.textContent;
@@ -83,25 +95,17 @@ const container = document.querySelector('#container');
           alert('Tie')
         }
     }
-      
       console.log(playerChoice)
-      return(playerChoice)
+      representationOfRound.textContent++
   }
- 
- 
-function computerPlay(arr) {
-  let playComp = arr[Math.floor(Math.random() * arr.length)];
-  let playCompMessage = `Computer picked ${playComp}`;
+
   
-  console.log(playCompMessage);
-  return(playComp);
-}
-
-let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"])
- 
 
 
 
+
+
+  
 
 
 
