@@ -42,13 +42,18 @@ const everyButton = document.querySelector('#everyButton');
     scissorsButton.addEventListener('click', play)
     everyButton.appendChild(scissorsButton);
 
-  let playerChoice = '';
+  const playerAndComputerSelections = document.querySelector('.playerAndComputerSelections')
+
+    
  
   function play(e){
     function computerPlay(arr) {
       let playComp = arr[Math.floor(Math.random() * arr.length)];
       let playCompMessage = `Computer picked ${playComp}`;
       console.log(playCompMessage);
+      let computerSelection = document.createElement('p')
+      computerSelection.textContent = `${playCompMessage}`
+      playerAndComputerSelections.appendChild(computerSelection)
       return(playComp);
       }
       let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"])
@@ -56,7 +61,7 @@ const everyButton = document.querySelector('#everyButton');
                
     if (e.target.id == 'Rock'){
       console.log(e.target.textContent);
-      playerChoice = e.target.textContent;
+      
       if(comPlay == 'Paper'){
         computerPoints.textContent++
         alert('Computer Wins')
@@ -72,7 +77,7 @@ const everyButton = document.querySelector('#everyButton');
     }
     else if (e.target.id == 'Paper'){
       console.log(e.target.textContent);
-      playerChoice = e.target.textContent;
+      
         if (comPlay == 'Rock'){
          playerPoints.textContent++
          alert('Player Wins')
@@ -87,9 +92,8 @@ const everyButton = document.querySelector('#everyButton');
     }
     else if (e.target.id == 'Scissors') {
       console.log(e.target.textContent);
-      playerChoice = e.target.textContent;
+      
         if (comPlay == 'Paper'){
-          
           playerPoints.textContent++
           alert('Player Wins')          
         }
@@ -101,35 +105,28 @@ const everyButton = document.querySelector('#everyButton');
           alert('Tie')
         }
     }
-      console.log(playerChoice)
       representationOfRound.textContent++
-  
-      if (Number(playerPoints.textContent) == 5){
+        let playerSelection = document.createElement('p')
+        playerSelection.textContent = `You Picked ${e.target.id}`
+        playerAndComputerSelections.appendChild(playerSelection);
+    checkWinner()
+    }
+      
+    function checkWinner(){
+      if (representationOfRound.textContent == 5 && playerPoints.textContent > computerPoints.textContent){
         alert('Player wins the game')
-        return
+        location.reload()
       }
-      else if (Number(computerPoints.textContent) == 5){
+      else if(representationOfRound.textContent == 5 && playerPoints.textContent < computerPoints.textContent){
         alert('Computer wins the game')
-        return
+        location.reload()
       }
-      let currentRound = Number(representationOfRound.textContent);
-      return currentRound
-    }
-    let winner = false;
-
-    if (playerPoints.textContent == '5'){
-      alert('Player wins the game')
-      winner = true
-    }
-    else if(computerPoints.textContent == '5'){
-      alert('Computer wins the game')
-      winner = true
-    }
+      else if(representationOfRound.textContent == 5 && playerPoints.textContent == computerPoints.textContent){
+        alert('Tie')
+        location.reload()
+      }
+     }
     
-    /* while (winner = true){
-      location.reload(true)
-    }
-    */
 
 
   

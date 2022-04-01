@@ -23,3 +23,9 @@ button{
     margin: 30px;
     background-color: antiquewhite;
 }
+.playerAndComputerSelections{
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
