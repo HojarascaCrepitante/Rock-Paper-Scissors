@@ -1,41 +1,46 @@
+const header = document.querySelector('.header');
 let round = document.querySelector('#round')
-  round.textContent = 'Round:'
+  round.textContent = 'Round'
+  round.classList.add('score');
   let representationOfRound = document.createElement('p')
   representationOfRound.textContent = '0'
   round.appendChild(representationOfRound)
+  header.appendChild(round)
 const resultsPlayer = document.querySelector('#resultsPlayer')
   resultsPlayer.textContent = 'Player' 
+  resultsPlayer.classList.add('score');
   let playerPoints = document.createElement('p')
     playerPoints.textContent = '0';
     playerPoints.setAttribute('id', 'player');
-    playerPoints.classList.add('score');
     resultsPlayer.appendChild(playerPoints)
+    header.insertBefore(resultsPlayer,round)
 const resultsComputer = document.querySelector('#resultsComputer')
-  resultsComputer.textContent = 'Computer'
+  resultsComputer.textContent = 'Computer';
+  resultsComputer.classList.add('score');
   let computerPoints = document.createElement('p')
     computerPoints.textContent ='0';
     computerPoints.setAttribute('id', 'computer')
-    computerPoints.classList.add('score')
     resultsComputer.appendChild(computerPoints)
-    
-const container = document.querySelector('#container');
+    header.appendChild(resultsComputer)
+
+const everyButton = document.querySelector('#everyButton');
   const rockButton = document.createElement('button');
     rockButton.setAttribute('id', 'Rock');
     rockButton.textContent = 'Rock';
     rockButton.addEventListener('click', play)
-    container.appendChild(rockButton);
+    everyButton.appendChild(rockButton);
 
     const paperButton = document.createElement('button');
     paperButton.setAttribute('id','Paper')
     paperButton.textContent = 'Paper';
     paperButton.addEventListener('click', play)
-    container.appendChild(paperButton);
+    everyButton.appendChild(paperButton);
 
     const scissorsButton = document.createElement('button');
     scissorsButton.setAttribute('id', 'Scissors')
     scissorsButton.textContent = 'Scissors';
     scissorsButton.addEventListener('click', play)
-    container.appendChild(scissorsButton);
+    everyButton.appendChild(scissorsButton);
 
   let playerChoice = '';
  
@@ -47,7 +52,8 @@ const container = document.querySelector('#container');
       return(playComp);
       }
       let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"])
-          
+
+               
     if (e.target.id == 'Rock'){
       console.log(e.target.textContent);
       playerChoice = e.target.textContent;
@@ -97,10 +103,19 @@ const container = document.querySelector('#container');
     }
       console.log(playerChoice)
       representationOfRound.textContent++
-  }
-
   
-
+      if (Number(playerPoints.textContent) == 5){
+        alert('Player wins the game')
+        return
+      }
+      else if (Number(computerPoints.textContent) == 5){
+        alert('Computer wins the game')
+        return
+      }
+      let currentRound = Number(representationOfRound.textContent);
+      return currentRound
+    }
+    
 
 
 
