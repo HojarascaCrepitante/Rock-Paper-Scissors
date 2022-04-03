@@ -65,7 +65,7 @@ const everyButton = document.querySelector('#everyButton');
     document.body.insertBefore(roundWinner, playerAndComputerSelections);
                
     if (e.target.id == 'Rock'){
-      console.log(e.target.textContent);
+    
       
       if(comPlay == 'Paper'){
         computerPoints.textContent++
@@ -81,8 +81,6 @@ const everyButton = document.querySelector('#everyButton');
       }
     }
     else if (e.target.id == 'Paper'){
-      console.log(e.target.textContent);
-      
         if (comPlay == 'Rock'){
          playerPoints.textContent++
          roundWinner.textContent = 'Player Wins'
@@ -96,8 +94,6 @@ const everyButton = document.querySelector('#everyButton');
         }
     }
     else if (e.target.id == 'Scissors') {
-      console.log(e.target.textContent);
-      
         if (comPlay == 'Paper'){
           playerPoints.textContent++
           roundWinner.textContent = 'Player Wins'          
@@ -118,7 +114,6 @@ const everyButton = document.querySelector('#everyButton');
     function computerPlay(arr) {
       let playComp = arr[Math.floor(Math.random() * arr.length)];
       let playCompMessage = `Computer picked ${playComp}`;
-      console.log(playCompMessage);
       let computerSelection = document.createElement('p')
       computerSelection.setAttribute('id', 'computerSelection')
       computerSelection.textContent = `${playCompMessage}`
