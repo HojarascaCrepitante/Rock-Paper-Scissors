@@ -59,23 +59,25 @@ const everyButton = document.querySelector('#everyButton');
         playerAndComputerSelections.removeChild(computerSelection);
       }
     
-    let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"])
-
+    let comPlay = computerPlay(["Rock" , "Paper" , "Scissors"]);
+    let roundWinner = document.createElement('div');
+    roundWinner.setAttribute('id','roundWinner');
+    document.body.insertBefore(roundWinner, playerAndComputerSelections);
                
     if (e.target.id == 'Rock'){
       console.log(e.target.textContent);
       
       if(comPlay == 'Paper'){
         computerPoints.textContent++
-        alert('Computer Wins')
+        roundWinner.textContent = 'Computer Wins'
       }
       else if (comPlay == 'Scissors'){
         
         playerPoints.textContent++
-        alert('Player Wins')
+        roundWinner.textContent = 'Player Wins'
       }
       else if (comPlay == 'Rock'){
-        alert('Tie')
+        roundWinner.textContent = 'Tie'
       }
     }
     else if (e.target.id == 'Paper'){
@@ -83,14 +85,14 @@ const everyButton = document.querySelector('#everyButton');
       
         if (comPlay == 'Rock'){
          playerPoints.textContent++
-         alert('Player Wins')
+         roundWinner.textContent = 'Player Wins'
         }
         else if (comPlay == 'Scissors'){
          computerPoints.textContent++
-         alert('Computer Wins')
+         roundWinner.textContent = 'Computer Wins'
         }
         else if (comPlay == 'Paper'){
-          alert('Tie')
+          roundWinner.textContent = 'Tie'
         }
     }
     else if (e.target.id == 'Scissors') {
@@ -98,14 +100,14 @@ const everyButton = document.querySelector('#everyButton');
       
         if (comPlay == 'Paper'){
           playerPoints.textContent++
-          alert('Player Wins')          
+          roundWinner.textContent = 'Player Wins'          
         }
         else if (comPlay == 'Rock'){
           computerPoints.textContent++
-          alert('Computer Wins')
+          roundWinner.textContent = 'Computer Wins'
         }
         else if( comPlay == 'Scissors'){
-          alert('Tie')
+          roundWinner.textContent = 'Tie'
         }
     }
       representationOfRound.textContent++
@@ -127,18 +129,39 @@ const everyButton = document.querySelector('#everyButton');
       
     function checkWinner(){
       if (representationOfRound.textContent == 5 && playerPoints.textContent > computerPoints.textContent){
-        alert('Player wins the game')
-        location.reload()
+        window.alert('Player wins the game');
+        let restartButton = document.createElement('button');
+        restartButton.textContent = 'Restart';
+        restartButton.addEventListener('click', newGame)
+        restartButton.setAttribute('id','restartButton');
+        playerAndComputerSelections.insertBefore(restartButton,playerSelection)
+        rockButton.removeEventListener('click',play);
+        paperButton.removeEventListener('click',play);
+        scissorsButton.removeEventListener('click',play);
       }
       else if(representationOfRound.textContent == 5 && playerPoints.textContent < computerPoints.textContent){
-        alert('Computer wins the game')
-        location.reload()
+        window.alert('Computer wins the game');
+        let restartButton = document.createElement('button');
+        restartButton.textContent = 'Restart';
+        restartButton.addEventListener('click', newGame);
+        restartButton.setAttribute('id','restartButton');
+        playerAndComputerSelections.insertBefore(restartButton,playerSelection)
+        rockButton.removeEventListener('click',play);
+        paperButton.removeEventListener('click',play);
+        scissorsButton.removeEventListener('click',play);
       }
       else if(representationOfRound.textContent == 5 && playerPoints.textContent == computerPoints.textContent){
-        alert('Tie')
-        location.reload()
+        window.alert('Tie');
+        let restartButton = document.createElement('button');
+        restartButton.textContent = 'Restart';
+        restartButton.addEventListener('click', newGame);
+        restartButton.setAttribute('id','restartButton');
+        playerAndComputerSelections.insertBefore(restartButton,playerSelection);
+        rockButton.removeEventListener('click',play);
+        paperButton.removeEventListener('click',play);
+        scissorsButton.removeEventListener('click',play);
       }
-     }
+    }
 
      
      function appendSelections(e){
@@ -154,6 +177,11 @@ const everyButton = document.querySelector('#everyButton');
           playerAndComputerSelections.removeChild(playerSelection);
           }
       }
+      function newGame(){
+        location.reload()
+      }
+
+      
 
 
   

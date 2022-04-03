@@ -9,6 +9,7 @@ body{
     background-color: aliceblue;
 }
 .score{
+    font-weight:bolder;
     padding:20px;
     text-align: center;
     margin: 10px;
@@ -22,10 +23,30 @@ button{
     padding:10px;
     margin: 30px;
     background-color: antiquewhite;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 40px;
+    border-width: 5px;
 }
 .playerAndComputerSelections{
     font-size: 25px;
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+#computerSelection{
+    color: rgb(226, 100, 100);
+}
+#playerSelection{
+    color: rgb(79, 79, 252);
+}
+#roundWinner{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+#restartButton{
+    padding: 10px;
+    font-size:30px;
+    justify-content: center;
 }
